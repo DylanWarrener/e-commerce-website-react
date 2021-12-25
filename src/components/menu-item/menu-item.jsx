@@ -2,8 +2,9 @@ import React from 'react';
 
 import './menu-item.scss';
 
-const MenuItem = props => (
-    <div className={`menu-item ${props.size}`}>
+export default function MenuItem(props) {
+    return (
+    <div className={`menu-item ${props.size}`} key={props.key}>
         <div 
             className='background-image'
             style={{
@@ -15,6 +16,5 @@ const MenuItem = props => (
             <span className='subtitle'>SHOP NOW</span>
         </div>
     </div>
-);
-
-export default MenuItem; 
+    );
+}
