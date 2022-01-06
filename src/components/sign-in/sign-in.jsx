@@ -1,9 +1,11 @@
 import React from "react";
 
+import { signInWithGoogle } from '../../firebase/firebase.util';
+
 import FormInput from '../form-input/form-input';
+import CustomButton from "../custom-button/custom-button";
 
 import './sign-in.scss';
-
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -30,52 +32,16 @@ class SignIn extends React.Component {
     render () {
         return (
             <div className="sign-in">
-                <h2>I already have an account</h2>
+                <h2 className="title">I already have an account</h2>
                 <span>Sign in with your email and password</span>
 
-                {/* Bootstrap form */}
-                <form onSubmit={this.handleChange}>
-                    <div class="mb-3 mt-3">
-                        <input 
-                            className="form-control"
-                            name='email' 
-                            type='email' 
-                            value={this.state.email} 
-                            handleChange={this.handleChange}
-                            placeholder='Enter email'
-                            id='email'
-                            required 
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <input 
-                            className="form-control"
-                            name='pswd' 
-                            type='password' 
-                            value={this.state.email} 
-                            handleChange={this.handleChange}
-                            placeholder='Enter password'
-                            id='pwd'
-                            required 
-                        />
-                    </div>
-                    <div class="form-check mb-3">
-                        <input 
-                            class="form-check-input" 
-                            type="checkbox"
-                        />
-                    </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-
-                {/* SASS form */}
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
                         name='email' 
                         type='email' 
                         value={this.state.email} 
                         handleChange={this.handleChange}
-                        label='email'
+                        label='Email'
                         required 
                     />
                     <FormInput 
@@ -83,10 +49,14 @@ class SignIn extends React.Component {
                         type='password' 
                         value={this.state.password} 
                         handleChange={this.handleChange}
-                        label='password'
+                        label='Password'
                         required 
                     />
-                    <input type='submit' value='Submit Form' />
+                    <CustomButton type='submit'>Sign in</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+                        {' '}
+                        Sign in with Google {' '}
+                    </CustomButton>
                 </form>
             </div>
         );
