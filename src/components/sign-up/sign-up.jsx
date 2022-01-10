@@ -35,7 +35,7 @@ class SignUp extends React.Component {
                 password
             );
 
-            createUserProfileDocument(user, { displayName });
+            await createUserProfileDocument(user, { displayName });
 
             this.setState({
                 displayName: '',
@@ -49,7 +49,7 @@ class SignUp extends React.Component {
     }
 
     handleChange = event => {
-        const { value, name } = event.target;
+        const { name, value } = event.target;
 
         this.setState({ [name]: value });
     }
