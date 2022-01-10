@@ -1,18 +1,15 @@
 .sign-in {
-    border: 1px solid red;
-    flex-grow: 1;
+    width: 33%;
     padding: 1vh;
 
     display: flex;
     flex-direction: column;
 
     .title {
-        border: 1px solid red;
         margin: 10px 0;
     }
 
     span {
-        border: 1px solid red;
     }
 
     form {
@@ -20,7 +17,6 @@
     }
 
     .buttons {
-        border: 1px solid red;
         display: flex;
         justify-content: space-around;
     }
