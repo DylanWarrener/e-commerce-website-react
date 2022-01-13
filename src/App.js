@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
-
-import './App.css';
+import { setCurrentUser } from './redux/user/user-action';
 
 import HomePage from './pages/home/home';
 import ShopPage from './pages/shop/shop';
@@ -10,32 +10,26 @@ import ContactPage from './pages/sign-in-sign-up/sign-in-sign-up';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up';
 import Header from './components/header/header';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    
-    this.state = {
-      currentUser: null
-    }
-  }
+import './App.css';
 
+class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { setCurrentUser } = this.props;
+
     this.unsubscribeFromAuth= auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userCollectionRef = await createUserProfileDocument(userAuth);
 
         userCollectionRef.onSnapshot(snapshot => {
-          this.setState({
-            currentUser: {
-              id: snapshot.id,
-              ...snapshot.data()
-            }
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data()
           });
         });
       } else {
-        this.setState({ currentUser: userAuth });
+        setCurrentUser(userAuth);
       }
     });
   }
@@ -47,7 +41,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <Header currentUser={this.state.currentUser}/>
+        <Header/>
         <Routes>
           <Route exact path='/signin' element={<SignInSignUpPage />} />
           <Route exact path='/contact' element={<ContactPage />} />
@@ -59,4 +53,17 @@ class App extends React.Component {
   }
 }
 
-export default App;
+/*
+	SETS the current state of the user into the 
+  root reducer, and returns it from the function
+*/
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+/* 
+	Returns and exports a higher order function with 
+	the current user state attached to the header, as 
+	a prop
+*/
+export default connect(null, mapDispatchToProps)(App);
