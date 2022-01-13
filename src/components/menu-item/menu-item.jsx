@@ -4,7 +4,7 @@ import './menu-item.scss';
 
 export default function MenuItem(props) {
     return (
-    <div className={`menu-item ${props.size}`} key={props.key}>
+    <div className={`menu-item ${props.size}`}>
         <div 
             className='background-image'
             style={{
