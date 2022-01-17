@@ -1,20 +1,32 @@
+// Default react 
 import React from 'react';
+
+// React router
 import { Routes, Route } from 'react-router-dom';
+
+// React redux
 import { connect } from 'react-redux';
-import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import { setCurrentUser } from './redux/user/user-action';
 
+// Firebase
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
+
+// Pages
 import HomePage from './pages/home/home';
 import ShopPage from './pages/shop/shop';
 import ContactPage from './pages/sign-in-sign-up/sign-in-sign-up';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up';
-import Header from './components/header/header';
 
+// components
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+
+// Stylesheet
 import './App.css';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
-
+  
   componentDidMount() {
     const { setCurrentUser } = this.props;
 
@@ -26,7 +38,7 @@ class App extends React.Component {
           setCurrentUser({
             id: snapshot.id,
             ...snapshot.data()
-          });
+          })
         });
       } else {
         setCurrentUser(userAuth);
@@ -48,6 +60,7 @@ class App extends React.Component {
           <Route exact path='/shop' element={<ShopPage />} />
           <Route exact path='/' element={<HomePage />} />
         </Routes>
+        <Footer />
       </div>
     );
   }
