@@ -53,7 +53,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <Header/>
+        <Header />
         <Routes>
           <Route exact path='/signin' element={<SignInSignUpPage />} />
           <Route exact path='/contact' element={<ContactPage />} />
@@ -67,8 +67,7 @@ class App extends React.Component {
 }
 
 /*
-	SETS the current state of the user into the 
-  root reducer, and returns it from the function
+	SETS the state of the current user object 
 */
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
@@ -76,7 +75,7 @@ const mapDispatchToProps = dispatch => ({
 
 /* 
 	Returns and exports a higher order function with 
-	the current user state attached to the header, as 
+	the current user state attached to the app, as 
 	a prop
 */
 export default connect(null, mapDispatchToProps)(App);
