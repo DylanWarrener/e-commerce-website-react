@@ -43,8 +43,8 @@ function Header({ currentUser }) {
 	GETS the current state of the users information from 
 	the root reducer and returns it back to this component
 */
-const mapStateToProps = state => ({
-	currentUser: state.user.currentUser
+const mapStateToProps = store => ({
+	currentUser: store.user.currentUser
 });
 
 /* 
