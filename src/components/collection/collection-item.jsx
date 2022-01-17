@@ -1,5 +1,7 @@
+// Default react
 import React from 'react';
 
+// Stylesheet
 import './collection-item.scss';
 
 export default function CollectionItem(props) {

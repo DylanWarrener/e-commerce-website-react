@@ -1,6 +1,11 @@
+// Default react
 import React from 'react';
 
+// Component
 import CollectionItem from './collection-item';
+
+// Stylesheet
+import './collection-preview.scss';
 
 export default function CollectionPreview(props) {
     return (

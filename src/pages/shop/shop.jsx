@@ -1,9 +1,12 @@
+// Default react
 import React from 'react';
 
-import './shop.scss';
-
+// Components
 import SHOP_DATA from '../../data/shop';
 import CollectionPreview from '../../components/collection/collection-preview';
+
+// Stylesheet
+import './shop.scss';
 
 export default function ShopPage() {
     return (

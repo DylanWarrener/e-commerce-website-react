@@ -1,10 +1,14 @@
+// Default react
 import React from "react";
 
+// Firebase
 import { auth, signInWithGoogle } from '../../firebase/firebase.util';
 
+// Components
 import FormInput from '../form-input/form-input';
 import CustomButton from "../custom-button/custom-button";
 
+// Stylesheet
 import './sign-in.scss';
 
 class SignIn extends React.Component {

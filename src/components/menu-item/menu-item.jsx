@@ -1,5 +1,7 @@
+// Default react
 import React from 'react';
 
+// Stylesheet
 import './menu-item.scss';
 
 export default function MenuItem(props) {

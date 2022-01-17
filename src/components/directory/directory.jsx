@@ -1,9 +1,14 @@
+// Default react
 import React from 'react';
 
-import './directory.scss';
-
+// Shop data
 import SHOP_DATA from '../../data/shop';
+
+// Components 
 import MenuItem from '../menu-item/menu-item';
+
+// Stylesheet
+import './directory.scss';
 
 export default function Directory() {
     return (

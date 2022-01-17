@@ -1,5 +1,7 @@
+// Default react
 import React from 'react';
 
+// Stylesheet
 import './custom-button.scss';
 
 export default function CustomButton({ children, isGoogleSignIn, ...otherProps }) {
