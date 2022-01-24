@@ -4,10 +4,10 @@ import React from 'react';
 // Stylesheet
 import './contact.scss';
 
-export default function contact(props) {
+export default function Contact() {
     return (
         <div>
-            Contact 
+            Contact component
         </div>
     );
 }
