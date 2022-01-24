@@ -12,9 +12,6 @@ import { BrowserRouter } from 'react-router-dom';
 // Main app
 import App from './App';
 
-// Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 // Style sheets
 import './index.css';
 
