@@ -14,7 +14,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.util';
 // Pages
 import HomePage from './pages/home/home';
 import ShopPage from './pages/shop/shop';
-import ContactPage from './pages/sign-in-sign-up/sign-in-sign-up';
+import ContactPage from './pages/contact/contact';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up';
 
 // components
@@ -38,7 +38,7 @@ class App extends React.Component {
           setCurrentUser({
             id: snapshot.id,
             ...snapshot.data()
-          })
+          });
         });
       } else {
         setCurrentUser(userAuth);
@@ -55,10 +55,10 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Routes>
-          <Route exact path='/signin' element={<SignInSignUpPage />} />
-          <Route exact path='/contact' element={<ContactPage />} />
-          <Route exact path='/shop' element={<ShopPage />} />
-          <Route exact path='/' element={<HomePage />} />
+          <Route path='/signin' element ={<SignInSignUpPage />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='/shop' element={<ShopPage />} />
+          <Route path='/' element={<HomePage />} />
         </Routes>
         <Footer />
       </div>
