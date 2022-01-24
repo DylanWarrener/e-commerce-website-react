@@ -2,7 +2,7 @@
 import React from "react";
 
 // Firebase
-import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.util';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.util';
 
 // Components
 import FormInput from '../form-input/form-input';
