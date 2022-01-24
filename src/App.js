@@ -2,7 +2,7 @@
 import React from 'react';
 
 // React router
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // React redux
 import { connect } from 'react-redux';
@@ -55,7 +55,7 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Routes>
-          <Route path='/signin' element ={<SignInSignUpPage />} />
+          <Route path='/signin' element={this.props.currentUser ? <Navigate replace to='/'/> : <SignInSignUpPage />}/>
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/shop' element={<ShopPage />} />
           <Route path='/' element={<HomePage />} />
@@ -65,6 +65,10 @@ class App extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({user}) => ({
+  currentUser: user.currentUser
+});
 
 /*
 	SETS the state of the current user object 
@@ -78,4 +82,4 @@ const mapDispatchToProps = dispatch => ({
 	the current user state attached to the app, as 
 	a prop
 */
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
