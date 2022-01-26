@@ -13,6 +13,9 @@ import { auth } from '../../firebase/firebase.util';
 // Logo svg
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
+// Components
+import CartIcon from '../cart-icon/cart-icon';
+
 // Stylesheet
 import './header.scss';
 
@@ -23,18 +26,19 @@ function Header({ currentUser }) {
 				<Logo className='logo' />
 			</Link>
 			<div className="nav-menu">
-				<Link className="options" to="/shop">
+				<Link className="options" to="shop">
 					SHOP
 				</Link>
-				<Link className="options" to="/contact">
+				<Link className="options" to="contact">
 					CONTACT
 				</Link>
 				{
 					currentUser 
-					? <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
-					: <Link className='option' to='/signin'>SIGN IN</Link>
+					? <div className='options' onClick={() => auth.signOut()}>SIGN OUT</div>
+					: <Link className='options' to='signin'>SIGN IN</Link>
 				}
 			</div>
+			<CartIcon />
 		</div>
     );
 }
