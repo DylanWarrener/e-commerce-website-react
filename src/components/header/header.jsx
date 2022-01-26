@@ -15,11 +15,12 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 // Components
 import CartIcon from '../cart-icon/cart-icon';
+import CartDropdown from '../cart-dropdown/cart-dropdown';
 
 // Stylesheet
 import './header.scss';
 
-function Header({ currentUser }) {
+function Header({ currentUser, hidden }) {
     return (
         <div className="header">
 			<Link className="logo-container" to="/">
@@ -37,8 +38,11 @@ function Header({ currentUser }) {
 					? <div className='options' onClick={() => auth.signOut()}>SIGN OUT</div>
 					: <Link className='options' to='signin'>SIGN IN</Link>
 				}
+				<CartIcon />
 			</div>
-			<CartIcon />
+			{
+				hidden ? null : <CartDropdown />
+			}
 		</div>
     );
 }
@@ -47,8 +51,9 @@ function Header({ currentUser }) {
 	GETS the current state of the users information from 
 	the root reducer and returns it back to this component
 */
-const mapStateToProps = store => ({
-	currentUser: store.user.currentUser
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden }}) => ({
+	currentUser,
+	hidden
 });
 
 /* 
