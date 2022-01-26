@@ -11,9 +11,11 @@ import './shop.scss';
 export default function ShopPage() {
     return (
         <div className="shop-page">
-			{SHOP_DATA.map(({ id, ...otherCollections }) => (
-				<CollectionPreview key={id} {...otherCollections} />
-			))}
+			{
+				SHOP_DATA.map(({ id, ...otherCollections }) => (
+					<CollectionPreview key={id} {...otherCollections} />
+				))
+			}
 		</div>
     );
 }
