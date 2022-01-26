@@ -7,13 +7,13 @@ import CollectionItem from './collection-item';
 // Stylesheet
 import './collection-preview.scss';
 
-export default function CollectionPreview(props) {
+export default function CollectionPreview({ title, items }) {
     return (
         <div className="collection-preview">
-			<h1 className="title">{props.title.toUpperCase()}</h1>
-			<div className="preview">
+			<h1 className="title">{title.toUpperCase()}</h1>
+			<div id='collection-item'>
 				{
-					props.items.filter((item, index) => index < 4)
+					items.filter((item, index) => index < 4)
 					.map(({ id, ...otherItemProps }) => (
 						<CollectionItem key={id} {...otherItemProps} />
 					))
@@ -22,3 +22,33 @@ export default function CollectionPreview(props) {
 		</div>
     );
 }
+
+/* 
+<div className='collection-item'>
+	{
+		items.filter((item, index) => index < 4)
+		.map(({ id, ...otherItemProps }) => (
+			<CollectionItem key={id} {...otherItemProps} />
+		))
+	}
+</div> 
+
+.collection-preview {
+	display: flex
+	flex-direction: column;
+	margin-bottom: 10px;
+  	border: 1px solid orange;
+
+	&:last-child {
+    	margin-bottom: 0;
+	}
+
+	&.title {
+		flex: 1 1 auto;
+	}
+}
+
+.collection-item {
+	display: flex;
+}
+*/
