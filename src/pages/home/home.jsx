@@ -9,7 +9,7 @@ import './home.scss';
 
 export default function HomePage() {
     return (
-        <div className='home-page'>
+        <div className='home-container'>
             <Directory />
         </div>
     )
