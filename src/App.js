@@ -55,10 +55,15 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Routes>
-          <Route path='/signin' element={this.props.currentUser ? <Navigate replace to='/'/> : <SignInSignUpPage />}/>
-          <Route path='/contact' element={<ContactPage />} />
-          <Route path='/shop' element={<ShopPage />} />
           <Route path='/' element={<HomePage />} />
+          <Route path='contact' element={<ContactPage />} />
+          <Route path='shop' element={<ShopPage />} />
+          <Route 
+            path='signin' 
+            element={
+              this.props.currentUser ? <Navigate replace to='/'/> : <SignInSignUpPage />
+            }
+          />
         </Routes>
         <Footer />
       </div>
