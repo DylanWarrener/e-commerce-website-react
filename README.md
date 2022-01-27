@@ -24,4 +24,3 @@ The topics that have/will been/be utilised in this project are as follows:
 - Testing with Jest, Enzyme and Snapshot testing
 - React Best Practices
 - State Normalization
-+ more
