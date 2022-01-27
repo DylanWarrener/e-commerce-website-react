@@ -6,15 +6,16 @@ The topics that have/will been/be utilised in this project are as follows:
 
 - React Basics
 - React Router
+- Styled-Components
+- Firebase
 - Redux
 - Redux Saga
 - Asynchronous Redux
+- Persistance + Session Storage
 - React Hooks
 - Context API
 - React Suspense + React Lazy
-- Firebase
 - Stripe API
-- Styled-Components
 - GraphQL
 - Apollo
 - PWAs
@@ -22,6 +23,5 @@ The topics that have/will been/be utilised in this project are as follows:
 - React Design Patterns
 - Testing with Jest, Enzyme and Snapshot testing
 - React Best Practices
-- Persistance + Session Storage
 - State Normalization
 + more
