@@ -20,6 +20,7 @@ import HomePage from './pages/home/home';
 import ShopPage from './pages/shop/shop';
 import ContactPage from './pages/contact/contact';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up';
+import CheckoutPage from './pages/checkout/checkout';
 
 // components
 import Header from './components/header/header';
@@ -62,6 +63,7 @@ class App extends React.Component {
           <Route path='/' element={<HomePage />} />
           <Route path='contact' element={<ContactPage />} />
           <Route path='shop' element={<ShopPage />} />
+          <Route path='checkout' element={<CheckoutPage />} />
           <Route 
             path='signin' 
             element={
