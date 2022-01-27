@@ -1,8 +1,13 @@
 // Default react
 import React from 'react';
 
-// React redux with access to the higher order function connect
+// Redux
 import { connect } from 'react-redux';
+
+// Reselect 
+import { selectCartHidden } from '../../redux/cart/cart-selectors';
+import { selectCurrentUser } from '../../redux/user/user-selector';
+import { createStructuredSelector } from 'reselect';
 
 // React router with access to the Link element
 import { Link } from 'react-router-dom';
@@ -51,9 +56,9 @@ function Header({ currentUser, hidden }) {
 	GETS the current state of the users information from 
 	the root reducer and returns it back to this component
 */
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden }}) => ({
-	currentUser,
-	hidden
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser,
+	hidden: selectCartHidden
 });
 
 /* 
