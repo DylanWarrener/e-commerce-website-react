@@ -4,7 +4,7 @@ import React from 'react';
 // Stylesheet
 import './menu-item.scss';
 
-export default function MenuItem({ size, imageUrl, title }) {
+export default function MenuItem({ title, imageUrl, size }) {
     return (
     <div className={`menu-item ${size}`}>
         <div 
