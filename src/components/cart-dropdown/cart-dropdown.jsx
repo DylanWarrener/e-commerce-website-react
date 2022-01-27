@@ -3,6 +3,10 @@ import React from 'react';
 // Redux
 import { connect } from 'react-redux';
 
+// Router 
+import { useNavigate } from 'react-router-dom';
+
+
 // Reselect 
 import { selectCartItems } from '../../redux/cart/cart-selectors';
 import { createStructuredSelector } from 'reselect';
@@ -15,16 +19,24 @@ import CartItem from '../cart-item/cart-item';
 import './cart-dropdown.scss';
 
 const CartDropdown = ({ cartItems }) => {
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate('/checkout');
+    }
+
     return (
         <div id='cart-dropdown'>
             <div className='cart-items'>
                 {
-                    cartItems.map(cartItem => (
+                    cartItems.length
+                    ? cartItems.map(cartItem => (
                         <CartItem key={cartItem.id} item={cartItem} />
                     ))
+                    : <span className='empty-message'>Your cart is empty</span>
                 }
             </div>
-            <CustomButton>GO TO CHECKOUT</CustomButton>
+            <CustomButton onClick={handleClick}>GO TO CHECKOUT</CustomButton>
         </div>
     )
 }
