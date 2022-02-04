@@ -1,4 +1,3 @@
-// Default react
 import React from 'react';
 
 // Redux
@@ -9,13 +8,13 @@ import { selectCartHidden } from '../../redux/cart/cart-selectors';
 import { selectCurrentUser } from '../../redux/user/user-selector';
 import { createStructuredSelector } from 'reselect';
 
-// React router with access to the Link element
+// React router 
 import { Link } from 'react-router-dom';
 
-// Firebase auth access
+// Firebase 
 import { auth } from '../../firebase/firebase.util';
 
-// Logo svg
+// SVGs
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 // Components

@@ -1,4 +1,3 @@
-// Default react 
 import React from 'react';
 
 // React router
