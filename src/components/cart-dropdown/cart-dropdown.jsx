@@ -19,8 +19,10 @@ import CartItem from '../cart-item/cart-item';
 import './cart-dropdown.scss';
 
 const CartDropdown = ({ cartItems }) => {
+    // Variable to store the navigation stack
     let navigate = useNavigate();
 
+    // Function for navigating to checkout page
     function handleClick() {
         navigate('/checkout');
     }
